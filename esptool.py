@@ -4473,7 +4473,7 @@ def main(argv=None, esp=None):
 
     compress_args = parser_write_flash.add_mutually_exclusive_group(required=False)
     compress_args.add_argument('--compress', '-z', help='Compress data in transfer (default unless --no-stub is specified)',
-                               action="store_true", default=None)
+                               action="store_true", default=0x1000)
     compress_args.add_argument('--no-compress', '-u', help='Disable data compression during transfer (default if --no-stub is specified)',
                                action="store_true")
 
