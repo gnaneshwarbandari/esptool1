@@ -4887,13 +4887,15 @@ class AddrFilenamePairAction(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         # validate pair arguments
         pairs = []
+        print(values)
         for i in range(0, len(values), 2):
             try:
-                address = int(values[i], 0)
+                address = 4096
             except ValueError:
                 raise argparse.ArgumentError(self, 'Address "%s" must be a number' % values[i])
             try:
-                argfile = open(values[i + 1], 'rb')
+                argfile = open(values[i], 'rb')
+                print(argfile)
             except IOError as e:
                 raise argparse.ArgumentError(self, e)
             except IndexError:
